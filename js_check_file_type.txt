@@ -1,0 +1,21 @@
+function checkfile(sender) {
+    var validExts = new Array(".csv");
+    var fileExt = sender.value;
+    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+    if (validExts.indexOf(fileExt) < 0) {
+        document.getElementById("upload-btn").disabled = true;
+        //alert("Invalid file selected, valid files are of " +
+        //     validExts.toString() + " types.");
+        document.getElementById('file').style.borderColor = "red"
+        document.getElementById('msg').style.color = "red"
+        $('#msg').html('invalid file extention support csv only')
+      return false;
+    }
+    else{
+        document.getElementById("upload-btn").disabled = false; 
+        document.getElementById('file').style.borderColor = "green"
+        document.getElementById('msg').style.color = "green"
+        $('#msg').html('valid file extention')
+        return True;
+    }
+}
